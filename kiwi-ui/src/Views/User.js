@@ -4,6 +4,8 @@ import { useAxiosGet } from '../Hooks/HttpRequests'
 import Loader from '../Components/Loader'
 import Select from 'react-select'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -26,19 +28,29 @@ export default function User(props) {
     </div>
   }
 
+  const notifyError = (e) => toast.error(e);
+  const notifySuccess = (e) => toast.success(e);
+
   if (users.loading) {
     usersContent = <Loader></Loader>
+  }
+
+  const refreshPage =()=> {
+    window.location.reload(true)
   }
 
   const handleOnChange = (userId) => {
     const data = { door_id: props.doorid, user_id: userId }
     axios.post(permUrl, data)
       .then(function (response) {
-        props.onUserGet()
+        setTimeout(() => {
+          refreshPage()
+        }, 1000);
+        notifySuccess("User added successfully")
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch((err)=> {
+        notifyError(err.response.data.error)
+      })
   }
 
   if (users.data) {
@@ -50,6 +62,7 @@ export default function User(props) {
   return (
     <div>
       {usersContent}
+      <ToastContainer />
     </div>
   )
 }
