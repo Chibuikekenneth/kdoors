@@ -25,6 +25,4 @@ PostgreSql database:    port 5432
 Redis Cache: Port       port 6379
 ```
 
-### Basic scenarios
-
-##### For the API, here are the endpoints below
+**Note, for development purposes, PostgreSql DB password is stored in docker compose environment configuration**
