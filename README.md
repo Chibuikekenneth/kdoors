@@ -19,7 +19,7 @@ for development You should be able to browse different components of the applica
 
 ```
 Web application :       http://localhost:3000/
-Web API :               hhttp://localhost:5000/
+Web API :               http://localhost:5000/
 
 PostgreSql database:    port 5432
 Redis Cache: Port       port 6379
