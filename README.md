@@ -46,4 +46,4 @@ The Web application on ```http://localhost:8080/```
 
 [GET] fetch users with permissions to a particular door
 
-``` http://localhost:5000/api/v1/permissions/{id}```
+``` http://localhost:5000/api/v1/permissions/{door_id}```
