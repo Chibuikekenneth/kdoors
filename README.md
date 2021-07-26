@@ -18,7 +18,7 @@ docker-compose up
 for development You should be able to browse different components of the application by using the below URLs :
 
 ```
-Web application :       http://localhost:3000/
+Web application (UI) :  http://localhost:8080/
 Web API :               http://localhost:5000/
 
 PostgreSql database:    port 5432
